@@ -203,8 +203,8 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
             query_params_count += 1
 
             # fmt: off
-            query = Query.from_(items).select(items.title).where(items.title.like(f"%{Parameter(query_params_count)}%"))
-            
+            # query = Query.from_(items).select(items.title).where(items.title.like(f"%{Parameter(query_params_count)}%"))
+            query = Query.from_(items).where(items.title.like(Parameter(query_params_count)))
             # fmt: on
 
         query = query.limit(Parameter(query_params_count + 1)).offset(
