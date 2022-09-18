@@ -203,7 +203,7 @@ class ItemsRepository(BaseRepository):  # noqa: WPS214
             query_params_count += 1
 
             # fmt: off
-            query = Query.from_(items).where(title in items.title).select(items.id)
+            query = Query.from_(items).select(items.title).where(title in items.title)
             
             # fmt: on
 
